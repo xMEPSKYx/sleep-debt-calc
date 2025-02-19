@@ -12,16 +12,16 @@
         const getSleepHours = day => {
             switch (day) {
                 case 'monday':
-                    return 4;
-                    break;
-                case 'tuesday': day;
-                    return 8;
-                    break;
-                case 'wednesday': day;
                     return 6;
                     break;
-                case 'thursday': day;
+                case 'tuesday': day;
                     return 7;
+                    break;
+                case 'wednesday': day;
+                    return 8;
+                    break;
+                case 'thursday': day;
+                    return 6;
                     break;
                 case 'friday': day;
                     return 8;
@@ -30,7 +30,7 @@
                     return 9;
                     break;
                 case 'sunday': day;
-                    return 6;
+                    return 9;
                     break;
                 default:
                     console.log(`Invalid argument`);
@@ -57,13 +57,15 @@
             let idealSleepHours = getIdealSleepHours();
 
             if (actualSleepHours === idealSleepHours) {
-                console.log("You slept ideal amount of time!");
+                console.log(`You slept ideal amount of time - ${getActualSleepHours()} hours!`);
             }   else if (actualSleepHours > idealSleepHours) {
-                console.log("You slept more than needed.");
+                console.log(`You slept more than needed - ${getActualSleepHours() - getIdealSleepHours()} hours.`);
             }   else if (actualSleepHours < idealSleepHours) {
-                console.log("You didn't sleep enough, get some rest.");
+                console.log(`You didn't sleep enough. You're ${getIdealSleepHours() - getActualSleepHours()} hours short, please get some sleep.`);
             };
         };
+
+        console.log(calculateSleepDebt());
 
     </script>
 
